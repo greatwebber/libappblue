@@ -17,7 +17,7 @@ class _DeveloperScreenState extends State<DeveloperScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Developer'),
-        backgroundColor: Colors.blue[800],
+        backgroundColor: Colors.black,
       ),
       body: SafeArea(
         child: SizedBox(

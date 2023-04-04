@@ -19,6 +19,7 @@ class Body extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(appName),
+        backgroundColor: Colors.black,
       ),
       body: SafeArea(
         child: Container(
@@ -64,6 +65,8 @@ class Body extends StatelessWidget {
                     width: size.width * 0.6,
                     padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                     child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.black),
                       child: const Text('Login'),
                       onPressed: () {
                         Navigator.push(context,

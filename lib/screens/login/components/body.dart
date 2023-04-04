@@ -1,18 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:librarymanagement/components/already_have_account_checked.dart';
 import 'package:librarymanagement/components/flash_toast.dart';
-import 'package:librarymanagement/components/rounded_input_field.dart';
-import 'package:librarymanagement/components/rounder_button.dart';
-import 'package:librarymanagement/components/rounder_password_field.dart';
 import 'package:librarymanagement/components/text_field_container.dart';
 import 'package:librarymanagement/constants.dart';
 // import 'package:librarymanagement/components/text_field_container.dart';
 // import 'package:librarymanagement/constants.dart';
 import 'package:librarymanagement/models/func.dart';
 import 'package:librarymanagement/screens/dashboard/dashboard_screen.dart';
-import 'package:librarymanagement/screens/login/components/backgroud.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -80,6 +73,7 @@ class _LoginBodyState extends State<LoginBody> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Login'),
+        backgroundColor: Colors.black,
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -146,50 +140,51 @@ class _LoginBodyState extends State<LoginBody> {
                     ),
                   ),
 
-                  SizedBox(
-                    height: size.height * 0.03,
-                  ),
-                  loading
-                      ? CircularProgressIndicator(
-                          color: kPrimaryColor,
-                        )
-                      : Container(
-                          margin: EdgeInsets.symmetric(vertical: 10),
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                          width: size.width * 0.8,
-                          child: ElevatedButton(
-                              onPressed: (() {
+                  // SizedBox(
+                  //   height: size.height * 0.03,
+                  // ),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 10),
+                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    width: size.width * 0.8,
+                    child: loading
+                        ? CircularProgressIndicator(
+                            color: Colors.black,
+                          )
+                        : ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.black),
+                            onPressed: (() {
+                              setState(() {
+                                loading = false;
+                              });
+                              if (usernameInput.text == "") {
+                                ShowToast.error("Matric No is Required");
+                              } else if (passwordInput.text == "") {
+                                ShowToast.error("Password is required");
+                              } else {
+                                login(usernameInput.text.toString(),
+                                    passwordInput.text.toString());
                                 setState(() {
-                                  loading = false;
+                                  loading = true;
                                 });
-                                if (usernameInput.text == "") {
-                                  ShowToast.error("Matric No is Required");
-                                } else if (passwordInput.text == "") {
-                                  ShowToast.error("Password is required");
-                                } else {
-                                  login(usernameInput.text.toString(),
-                                      passwordInput.text.toString());
-                                  setState(() {
-                                    loading = true;
-                                  });
-                                }
-                              }),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                // ignore: prefer_const_literals_to_create_immutables
-                                children: [
-                                  Icon(Icons.login),
-                                  Padding(
-                                    padding: EdgeInsets.all(16),
-                                    child: Text(
-                                      'Login',
-                                      style: TextStyle(fontSize: 16),
-                                    ),
-                                  )
-                                ],
-                              )),
-                        ),
+                              }
+                            }),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              // ignore: prefer_const_literals_to_create_immutables
+                              children: [
+                                Icon(Icons.login),
+                                Padding(
+                                  padding: EdgeInsets.all(16),
+                                  child: Text(
+                                    'Login',
+                                    style: TextStyle(fontSize: 16),
+                                  ),
+                                )
+                              ],
+                            )),
+                  ),
                   SizedBox(
                     height: size.height * 0.03,
                   ),
