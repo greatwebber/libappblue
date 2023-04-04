@@ -6,6 +6,7 @@ import 'package:librarymanagement/components/flash_toast.dart';
 import 'package:librarymanagement/components/rounded_input_field.dart';
 import 'package:librarymanagement/components/rounder_button.dart';
 import 'package:librarymanagement/components/rounder_password_field.dart';
+import 'package:librarymanagement/components/text_field_container.dart';
 import 'package:librarymanagement/constants.dart';
 // import 'package:librarymanagement/components/text_field_container.dart';
 // import 'package:librarymanagement/constants.dart';
@@ -29,6 +30,12 @@ class _LoginBodyState extends State<LoginBody> {
   final passwordInput = TextEditingController();
 
   bool loading = false;
+
+  bool passwordVisible = false;
+  void initState() {
+    super.initState();
+    passwordVisible = true;
+  }
 
   void getData() async {
     setState(() {
@@ -70,67 +77,126 @@ class _LoginBodyState extends State<LoginBody> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    return Background(
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              "LOGIN $appName",
-              style: TextStyle(fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Login'),
+      ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.all(20),
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  SizedBox(
+                    height: size.height * 0.03,
+                  ),
+                  // SvgPicture.asset(
+                  //   "assets/icons/login.svg",
+                  //   height: size.height * 0.35,
+                  // ),
+                  Image.asset(
+                    'assets/images/library.png',
+                    height: size.height * 0.35,
+                  ),
+                  SizedBox(
+                    height: size.height * 0.03,
+                  ),
+
+                  TextFieldContainer(
+                    child: TextField(
+                      controller: usernameInput,
+                      style: TextStyle(fontSize: 18),
+                      keyboardType: TextInputType.multiline,
+                      minLines: 1,
+                      maxLines: 10, // define o tipo de teclado utilizado
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: "Matric No",
+                        prefixIcon: Icon(Icons.person),
+                      ),
+                    ),
+                  ),
+                  TextFieldContainer(
+                    child: TextField(
+                      controller: passwordInput,
+                      onChanged: (value) {},
+                      style: TextStyle(fontSize: 18),
+                      minLines: 1,
+                      textInputAction: TextInputAction.done,
+                      keyboardType: TextInputType.text,
+                      obscureText: passwordVisible,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: "Password",
+                        prefixIcon: Icon(Icons.lock),
+                        suffixIcon: IconButton(
+                            icon: Icon(passwordVisible
+                                ? Icons.visibility
+                                : Icons.visibility_off),
+                            onPressed: () {
+                              setState(
+                                () {
+                                  passwordVisible = !passwordVisible;
+                                },
+                              );
+                            }),
+                      ),
+                    ),
+                  ),
+
+                  SizedBox(
+                    height: size.height * 0.03,
+                  ),
+                  loading
+                      ? CircularProgressIndicator(
+                          color: kPrimaryColor,
+                        )
+                      : Container(
+                          margin: EdgeInsets.symmetric(vertical: 10),
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                          width: size.width * 0.8,
+                          child: ElevatedButton(
+                              onPressed: (() {
+                                setState(() {
+                                  loading = false;
+                                });
+                                if (usernameInput.text == "") {
+                                  ShowToast.error("Matric No is Required");
+                                } else if (passwordInput.text == "") {
+                                  ShowToast.error("Password is required");
+                                } else {
+                                  login(usernameInput.text.toString(),
+                                      passwordInput.text.toString());
+                                  setState(() {
+                                    loading = true;
+                                  });
+                                }
+                              }),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                // ignore: prefer_const_literals_to_create_immutables
+                                children: [
+                                  Icon(Icons.login),
+                                  Padding(
+                                    padding: EdgeInsets.all(16),
+                                    child: Text(
+                                      'Login',
+                                      style: TextStyle(fontSize: 16),
+                                    ),
+                                  )
+                                ],
+                              )),
+                        ),
+                  SizedBox(
+                    height: size.height * 0.03,
+                  ),
+                ],
+              ),
             ),
-            SizedBox(
-              height: size.height * 0.03,
-            ),
-            SvgPicture.asset(
-              "assets/icons/login.svg",
-              height: size.height * 0.35,
-            ),
-            SizedBox(
-              height: size.height * 0.03,
-            ),
-            RounderInputField(
-              hintText: "Matric No",
-              icon: Icons.person,
-              onChanged: (value) {},
-              controller: usernameInput,
-            ),
-            RoundedPasswordField(
-              hintText: "Password",
-              icon: Icons.lock,
-              onChanged: (value) {},
-              controller: passwordInput,
-            ),
-            SizedBox(
-              height: size.height * 0.03,
-            ),
-            loading
-                ? CircularProgressIndicator(
-                    color: kPrimaryColor,
-                  )
-                : RoundedButton(
-                    text: "LOGIN",
-                    press: () {
-                      setState(() {
-                        loading = false;
-                      });
-                      if (usernameInput.text == "") {
-                        ShowToast.error("Matric No is Required");
-                      } else if (passwordInput.text == "") {
-                        ShowToast.error("Password is required");
-                      } else {
-                        login(usernameInput.text.toString(),
-                            passwordInput.text.toString());
-                        setState(() {
-                          loading = true;
-                        });
-                      }
-                    }),
-            SizedBox(
-              height: size.height * 0.03,
-            ),
-          ],
+          ),
         ),
       ),
     );
