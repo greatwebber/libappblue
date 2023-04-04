@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-const String appName = "Development of Android Based digital achiving system";
+const String appName = "Development of Android Based Digital Library System";
 
 const String apiUrl = "https://mylib.mytestdomainweb.website/json";
 

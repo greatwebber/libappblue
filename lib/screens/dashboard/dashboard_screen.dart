@@ -228,7 +228,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     icon: Icons.verified_user_sharp,
                     press: () {
                       Navigator.of(context)
-                          .push(SlideRightRoute(page: const DeveloperScreen()));
+                          .push(SlideRightRoute(page: DeveloperScreen()));
                     },
                   ),
                 ],

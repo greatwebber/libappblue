@@ -1,14 +1,8 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:librarymanagement/components/rounder_button.dart';
 import 'package:librarymanagement/models/func.dart';
 import 'package:librarymanagement/screens/developer.dart';
 import 'package:librarymanagement/screens/login/login_screen.dart';
-import 'package:librarymanagement/screens/welcome/components/background.dart';
 // ignore: import_of_legacy_library_into_null_safe
-import 'package:flutter_svg/flutter_svg.dart';
-
-import '../../../constants.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
@@ -88,14 +82,11 @@ class Body extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                CircleAvatar(
-                  backgroundImage: AssetImage('assets/images/fpelogo.png'),
-                  radius: 60,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(child: Text('Mrs Oluwatosin Adefunke Oluwatobi')),
+                Container(
+                    child: const Text(
+                  'Mr Fasoyiro Samuel O',
+                  style: TextStyle(fontSize: 20),
+                )),
                 SizedBox(
                   height: 10,
                 ),
@@ -107,7 +98,7 @@ class Body extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green,
                       ),
-                      child: const Text('ABOUT DEVELOPERS'),
+                      child: Text('ABOUT DEVELOPERS'),
                       onPressed: () {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {

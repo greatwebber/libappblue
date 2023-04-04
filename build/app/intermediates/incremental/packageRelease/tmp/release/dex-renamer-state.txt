@@ -1,4 +1,4 @@
-#Tue Apr 04 07:29:46 WAT 2023
-base.0=/Users/user/Documents/flutter/librarymanagement/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+#Tue Apr 04 14:20:43 WAT 2023
+base.0=/Users/user/Documents/flutter/libnew/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

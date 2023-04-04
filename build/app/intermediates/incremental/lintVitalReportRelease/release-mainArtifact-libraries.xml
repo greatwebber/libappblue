@@ -1,13 +1,13 @@
 <libraries>
   <library
-      name="__local_aars__:/Users/user/Documents/flutter/librarymanagement/build/app/intermediates/flutter/release/libs.jar:unspecified@jar"
-      jars="/Users/user/Documents/flutter/librarymanagement/build/app/intermediates/flutter/release/libs.jar"
-      resolved="__local_aars__:/Users/user/Documents/flutter/librarymanagement/build/app/intermediates/flutter/release/libs.jar:unspecified"/>
+      name="__local_aars__:/Users/user/Documents/flutter/libnew/build/app/intermediates/flutter/release/libs.jar:unspecified@jar"
+      jars="/Users/user/Documents/flutter/libnew/build/app/intermediates/flutter/release/libs.jar"
+      resolved="__local_aars__:/Users/user/Documents/flutter/libnew/build/app/intermediates/flutter/release/libs.jar:unspecified"/>
   <library
-      name="/Users/user/Documents/flutter/librarymanagement/android@@:modal_progress_hud_nsn::release"
-      jars="/Users/user/Documents/flutter/librarymanagement/build/modal_progress_hud_nsn/.transforms/36a88bf4829fa7e52753eda5ea978028/transformed/out/jars/classes.jar"
+      name="/Users/user/Documents/flutter/libnew/android@@:modal_progress_hud_nsn::release"
+      jars="/Users/user/Documents/flutter/libnew/build/modal_progress_hud_nsn/.transforms/f43177ab78830a0860f546b05f1abbf1/transformed/out/jars/classes.jar"
       resolved="com.walle.modal_progress_hud_nsn:modal_progress_hud_nsn:unspecified"
-      folder="/Users/user/Documents/flutter/librarymanagement/build/modal_progress_hud_nsn/.transforms/36a88bf4829fa7e52753eda5ea978028/transformed/out"
+      folder="/Users/user/Documents/flutter/libnew/build/modal_progress_hud_nsn/.transforms/f43177ab78830a0860f546b05f1abbf1/transformed/out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -17,10 +17,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="/Users/user/Documents/flutter/librarymanagement/android@@:fluttertoast::release"
-      jars="/Users/user/Documents/flutter/librarymanagement/build/fluttertoast/.transforms/42b604f7303c455eed2bc374210128f4/transformed/out/jars/classes.jar"
+      name="/Users/user/Documents/flutter/libnew/android@@:fluttertoast::release"
+      jars="/Users/user/Documents/flutter/libnew/build/fluttertoast/.transforms/cc4927a975aff82cb10eb44af8aaa493/transformed/out/jars/classes.jar"
       resolved="com.example.FlutterToast:fluttertoast:unspecified"
-      folder="/Users/user/Documents/flutter/librarymanagement/build/fluttertoast/.transforms/42b604f7303c455eed2bc374210128f4/transformed/out"
+      folder="/Users/user/Documents/flutter/libnew/build/fluttertoast/.transforms/cc4927a975aff82cb10eb44af8aaa493/transformed/out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
